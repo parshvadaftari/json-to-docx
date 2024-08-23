@@ -66,7 +66,7 @@ If you are not using Pixi (you should) and want to use PIP install the required 
 ```bash
 pip install jinja2
 pip install python-docx
-pip install python-docx-mailmerge
+pip install docx-mailmerge
 pip install requests
 ```
 
