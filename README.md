@@ -66,7 +66,7 @@ If you are not using Pixi (you should) and want to use PIP install the required 
 ```bash
 pip install jinja2
 pip install python-docx
-pip install docx-mailmerge
+pip install python-docx-mailmerge
 pip install requests
 ```
 
@@ -298,3 +298,17 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contributions
 
 Contributions are welcome! Please submit pull requests or open issues to improve the project.
+
+## Version
+* 0.1 - 2024-05-30 -> Having some ideas after friend asked me to build this
+* 0.2 - 2024-06-01 -> Created first version of language file
+* 0.3 - 2024-06-05 -> Created first version of my own resume in JSON
+* 0.4 - 2024-06-17 -> Setting the basic structure.
+* 0.5 - 2024-06-18 -> Creating the first HTML version
+* 0.6 - 2024-06-19 -> Creating the first Word version
+* 0.7 - 2024-06-20 -> Creating code
+* 0.8 - 2024-06-21 -> Creating more code
+* 0.9 - 2024-06-22 -> Tryng to create a PDF version
+* 1.0 - 2024-06-23 -> First live verson, with test possibilities
+  - Initial release with support for generating resumes in HTML and Word formats.
+  - SEO optimizations with hreflang links, sitemap, and robots.txt.

@@ -45,16 +45,19 @@ def main():
 
     # Collect all languages
     languages = []
+    data = None
 
     # Process each JSON file
     for filename in os.listdir(json_dir):
+        # print(f"Processing file: {filename}")
         if filename.endswith('.json') and filename not in not_files:
+            # print("Inside iff")
             data = load_json(os.path.join(json_dir, filename))
-            lang = data['basics']['lang']
+            lang = "us"
             languages.append(lang)
-
-    # Generate hreflang links
-    hreflang_links = generate_hreflang_links(data['basics'], languages, default_language)
+            
+    
+    hreflang_links = generate_hreflang_links(data, languages, default_language)
 
     analytics_bodyend = read_config_file("config/analytics_bodyend.txt")
     analytics_head = read_config_file("config/analytics_head.txt")
@@ -69,7 +72,7 @@ def main():
                 'bodyend': analytics_bodyend
             }
 
-            lang = data['basics']['lang']
+            lang = "us"
             downloads = generate_downloads(language=lang, word=True, pdf=True, tldr=True)
             translations = load_json(os.path.join(translations_dir, f"{lang}.json"))
             output_filename = f"{lang}_resume.html"
@@ -84,20 +87,14 @@ def main():
             word_output_tldr_path = os.path.join(output_dir, word_output_tldr_filename)
 
             # Generate resume, structured data, and Word document
-            generate_resume(template, data, translations, hreflang_links, output_path, downloads)
+            # generate_resume(template, data, translations, hreflang_links, output_path, downloads)
             generate_structured_data(data, structured_data_path)
             generate_word_resume(data, translations, word_output_path, False)
             generate_word_resume(data, translations, word_output_tldr_path, True)
 
-            # Generate PDF with cloudconvert API you need to pay for the API
-            # First read api from config file
-            # cloudconvert_api = read_config_file("config/cloudconvert.txt")
-            # convert_to_pdf(word_output_path, lang, cloudconvert_api)
-
-            # OR use Generate PDF resume (not possible on Mac OS M1/M2/M3/Mx CPUs)
-            # generate_pdf_resume(language:str = ""):
+            
 
 if __name__ == "__main__":
     main()
 
-# RUN SCRIPT > pixi run python main.py
+# RUN SCRIPT > python main.py
